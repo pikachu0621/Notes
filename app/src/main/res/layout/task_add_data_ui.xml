@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	app:cardMaxElevation="0dp"
+	app:cardCornerRadius="10dp"
+	app:cardElevation="0dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:padding="10dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="center_vertical">
+
+			<ImageView
+				android:src="@drawable/add_data_icon"
+				android:layout_width="32dp"
+				android:layout_height="32dp"/>
+
+			<TextView
+				android:id="@+id/id_task_add_data_text_2"
+				android:textStyle="bold"
+				android:textColor="@color/color_515151"
+				android:layout_weight="1"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:text="@string/home_account"
+				android:layout_marginStart="15dp"
+				android:textSize="16sp"/>
+
+			<TextView
+				android:id="@+id/id_task_add_data_text_1"
+				android:layout_width="52dp"
+				android:layout_height="30dp"
+				android:textColor="@color/color_ffffff"
+				android:background="@drawable/add_buttom_bg"
+				android:text="@string/mood_complete"
+				android:gravity="center"
+				android:textStyle="bold"
+				android:textSize="13sp"/>
+
+		</LinearLayout>
+
+		<TextView
+			android:textStyle="bold"
+			android:textColor="@color/color_515151"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/task_title"
+			android:layout_marginTop="30dp"
+			android:textSize="14sp"/>
+
+		<EditText
+			android:id="@+id/id_task_add_data_edit_1"
+			android:layout_width="match_parent"
+			android:layout_height="40dp"
+			android:textColor="@color/color_515151"
+			android:hint="@string/account_title_hint"
+			android:textColorHint="@color/color_bbbbbb"
+			android:background="@drawable/edit_bg"
+			android:textSize="12sp"
+			android:layout_marginTop="10dp"
+			android:maxLines="1"
+			android:paddingLeft="5dp"
+            android:textCursorDrawable="@drawable/edit_cursor"/>
+
+        
+        
+		<LinearLayout
+            android:id="@+id/id_task_add_data_linear_1"
+			android:layout_marginTop="20dp"
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+			<TextView
+                android:textStyle="bold"
+                android:textColor="@color/color_515151"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/task_choose_time"
+                android:textSize="14sp"/>
+            
+			<TextView
+                android:id="@+id/id_task_add_data_text_3"
+                android:textStyle="bold"
+                android:textColor="@color/color_8e8e8e"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:gravity="right"
+                android:text="@string/task_choose_time_1"
+                android:textSize="12sp"/>
+            <ImageView
+                android:src="@drawable/return_to_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"/>
+            
+            
+		</LinearLayout>
+
+		<TextView
+			android:textStyle="bold"
+			android:textColor="@color/color_515151"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/task_text"
+			android:layout_marginTop="20dp"
+			android:textSize="14sp"/>
+
+		<EditText
+			android:id="@+id/id_task_add_data_edit_2"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:gravity="top"
+			android:padding="5dp"
+			android:textColor="@color/color_515151"
+			android:hint="@string/account_remark_hint"
+			android:textColorHint="@color/color_bbbbbb"
+			android:background="@drawable/edit_bg"
+			android:textSize="12sp"
+			android:layout_marginTop="10dp"
+            android:textCursorDrawable="@drawable/edit_cursor"/>
+
+	</LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

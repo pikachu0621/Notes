@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="moody"
+        android:enabled="true"
+        android:icon="@drawable/home_mood_icon"
+        android:shortcutShortLabel="@string/home_mood">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.pikachu.record"
+            android:targetClass="com.pikachu.record.activity.mood.MoodActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+            
+    </shortcut>
+    
+    
+    
+    <shortcut
+        android:shortcutId="task"
+        android:enabled="true"
+        android:icon="@drawable/home_task_icon"
+        android:shortcutShortLabel="@string/home_task">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.pikachu.record"
+            android:targetClass="com.pikachu.record.activity.task.TaskActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+
+    </shortcut>
+    
+    
+    <shortcut
+        android:shortcutId="account"
+        android:enabled="true"
+        android:icon="@drawable/home_account_icon"
+        android:shortcutShortLabel="@string/home_account">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.pikachu.record"
+            android:targetClass="com.pikachu.record.activity.account.AccountActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+
+    </shortcut>
+    
+    
+    
+    
+    <shortcut
+        android:shortcutId="diary"
+        android:enabled="true"
+        android:icon="@drawable/home_diary_icon"
+        android:shortcutShortLabel="@string/home_diary">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.pikachu.record"
+            android:targetClass="com.pikachu.record.activity.diary.DiaryActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+
+    </shortcut>
+    
+    
+</shortcuts>

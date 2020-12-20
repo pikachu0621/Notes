@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/id_home_drawerLayout_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- 主布局 -->
+        <include
+            layout="@layout/home_main_ui"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 侧滑 -->
+        <include
+            layout="@layout/home_drawer_ui"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+    <View
+        android:id="@+id/id_home_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</RelativeLayout>

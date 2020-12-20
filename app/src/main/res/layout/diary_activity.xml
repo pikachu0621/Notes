@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.pikachu.record.view.top.TopView
+        android:id="@+id/id_diary_topView_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:IsShowStateTow="gone"
+        app:LeftImage="@drawable/icon_l"
+        app:RightImage="@drawable/icon_r"
+        app:Text="@string/app_name" />
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/id_diary_swipeRefresh_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/id_diary_topView_1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/id_diary_recycler_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_below="@+id/id_diary_topView_1"
+        android:background="@drawable/gradient_top" />
+</RelativeLayout>

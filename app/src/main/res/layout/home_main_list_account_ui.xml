@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="15dp"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <LinearLayout
+            android:id="@+id/id_home_main_list_account_linear_1"
+            android:background="@drawable/bg_selector"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/home_account_r_icon"
+                android:padding="13dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights"
+                        android:text="@string/home_main_account_1"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_515151"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_enter"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="4dp">
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/home_main_account_5"
+                        android:textSize="12sp"
+                        android:textColor="@color/color_8e8e8e" />
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_pay"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/return_to_icon"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@color/color_bbbbbb" />
+        <LinearLayout
+            android:id="@+id/id_home_main_list_account_linear_2"
+            android:background="@drawable/bg_selector"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/home_account_y_icon"
+                android:padding="13dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights"
+                        android:text="@string/home_main_account_2"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_515151"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_enter"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="4dp">
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/home_main_account_6"
+                        android:textSize="12sp"
+                        android:textColor="@color/color_8e8e8e" />
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_pay"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/return_to_icon"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@color/color_bbbbbb" />
+        <LinearLayout
+            android:id="@+id/id_home_main_list_account_linear_3"
+            android:background="@drawable/bg_selector"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/home_account_n_icon"
+                android:padding="13dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginStart="5dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights"
+                        android:text="@string/home_main_account_3"
+                        android:textSize="14sp"
+                        android:textColor="@color/color_515151"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_enter"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:paddingBottom="4dp">
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/home_main_account_7"
+                        android:textSize="12sp"
+                        android:textColor="@color/color_8e8e8e" />
+                    <TextView
+                        android:id="@+id/id_home_main_list_account_textView_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        tools:ignore="RtlHardcoded"
+                        android:textColor="@color/color_pay"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:text="@string/home_main_account_4" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/return_to_icon"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

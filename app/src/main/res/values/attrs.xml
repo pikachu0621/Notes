@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+
+    <!--    TopView  属性介绍写在java里 -->
+    <declare-styleable name="TopView">
+        <attr name="Height" format="dimension" />
+        <attr name="BackgroundColor" format="color" />
+
+        <attr name="LeftImage" format="reference" />
+        <attr name="RightImage" format="reference" />
+
+        <attr name="Image_Padding" format="dimension" />
+        <attr name="Image_Margin" format="dimension" />
+        <attr name="Image_WH" format="dimension" />
+
+        <attr name="Text" format="string" />
+        <attr name="TextColor" format="color" />
+        <attr name="TextType" format="integer">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="bold_italic" value="3" />
+        </attr>
+        <attr name="TextSize" format="dimension" />
+        <attr name="TextPadding" format="dimension" />
+        <attr name="TextGravity" format="integer">
+            <enum name="left" value="0" />
+            <enum name="centre" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+
+
+        <attr name="StateTowColor" format="color" />
+        <attr name="IsReturnActivity" format="boolean" />
+        <attr name="IsShowLeftImage" format="boolean" />
+        <attr name="IsShowRightImage" format="boolean" />
+        <attr name="IsShowText" format="boolean" />
+        <attr name="IsShowState" format="boolean" />
+        <attr name="IsShowStateTow" format="integer">
+            <enum name="visible" value="0" />
+            <enum name="fit" value="1" />
+            <enum name="gone" value="2" />
+        </attr>
+
+
+    </declare-styleable>
+
+
+    <!--    AddButtonLayout  内部第一个view会被设置为主按键 -->
+    <declare-styleable name="AddButtonLayout">
+
+        <!--  起始角度   ( 0<=   起始角度  < 结束角度 ) -->
+        <attr name="start_angle" format="float" />
+        <!--    结束角度  ( startAngle <   结束角度  <= 220 ）  -->
+        <attr name="end_angle" format="float" />
+
+        <!--    右边外边距   -->
+        <attr name="max_right_margin" format="dimension" />
+        <!--   底部外边距  -->
+        <attr name="max_bottom_margin" format="dimension" />
+        <!--   外圈按键到 大按键的距离  -->
+        <attr name="min_to_max_distance" format="dimension" />
+
+        <!-- 初始是否展开状态 -->
+        <attr name="is_show" format="boolean" />
+
+        <!-- 动画速度 -->
+        <attr name="animator_speed" format="integer" />
+
+    </declare-styleable>
+
+
+    <!--    AddButtonView  -->
+    <declare-styleable name="AddButtonView">
+
+        <!-- 图片 -->
+        <attr name="src" format="reference" />
+        <!-- 图片大小 -->
+        <attr name="image_size" format="dimension" />
+
+
+        <!-- 图片圆角大小 -->
+        <attr name="image_radius" format="dimension" />
+        <!-- 图片是否为圆 -->
+        <attr name="image_is_circle" format="boolean"/>
+
+
+        <!-- 图片边框宽度 -->
+        <attr name="image_border_width" format="dimension" />
+        <!-- 图片边框颜色 -->
+        <attr name="image_border_color" format="color"/>
+
+
+
+
+
+        <!-- 文本 -->
+        <attr name="text" format="string" />
+        <!-- 文本样式 -->
+        <attr name="text_type">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+            <enum name="bold_italic" value="3" />
+        </attr>
+        <!-- 文本颜色 -->
+        <attr name="text_color" format="color" />
+        <!-- 文本大小 -->
+        <attr name="text_size" format="dimension" />
+        <!-- 文本与图片之间的距离 -->
+        <attr name="text_image_margin" format="dimension" />
+        <!-- 是否显示文本 -->
+        <attr name="text_is_show" format="boolean" />
+
+
+    </declare-styleable>
+
+
+
+ <!--    QMUI 图片圆角  -->
+    <declare-styleable name="QMUIRadiusImageView">
+        <attr format="dimension" name="qmui_border_width"/>
+        <attr format="color" name="qmui_border_color"/>
+        <attr format="color" name="qmui_selected_mask_color"/>
+        <attr format="color" name="qmui_selected_border_color"/>
+        <attr format="dimension" name="qmui_selected_border_width"/>
+        <attr format="dimension" name="qmui_corner_radius"/>
+        <attr format="boolean" name="qmui_is_oval"/>
+        <attr format="boolean" name="qmui_is_circle"/>
+        <attr format="boolean" name="qmui_is_touch_select_mode_enabled"/>
+    </declare-styleable>
+
+
+
+
+    <!--    CircleView  圆形统计图  -->
+    <declare-styleable name="CircleView">
+        <!--  中间空心圆半径 -->
+        <attr name="c_min_circle_radius" format="dimension" />
+        <!--  边框线颜色 -->
+        <attr name="c_line_color" format="color" />
+        <!--  边框线宽度 -->
+        <attr name="c_line_width" format="dimension" />
+        <!--  开始角度 -->
+        <attr name="c_start_angle" format="float" />
+    </declare-styleable>
+
+
+    <!--    CircleView  圆形统计图+文字  -->
+    <declare-styleable name="CircleGroupView">
+        <!--  统计图大小 -->
+        <attr name="statistics_size" format="dimension" />
+        <!--  统计top外边距  -->
+        <attr name="top_margin" format="dimension" />
+        <!--  统计left外边距  -->
+        <attr name="left_margin" format="dimension" />
+        <!--  统计bottom外边距  -->
+        <attr name="bottom_margin" format="dimension" />
+
+        <!--  以下的item属性懒得写/java可以获取设置 -->
+        <!--  色块与文字间隔 -->
+        <!--  文字大小 -->
+        <!--  文字颜色 -->
+        <!--  文字样式 -->
+    </declare-styleable>
+
+
+
+
+</resources>

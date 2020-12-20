@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2e86ff</color>
+    <color name="colorPrimaryDark">#802e86ff</color>
+    <color name="colorAccent">#ffffff</color>
+
+    <!--透明色-->
+    <color name="color_00">#00000000</color>
+        <!--黑-->
+    <color name="color_05">#50000000</color>
+    <color name="color_03">#30000000</color>
+    <color name="color_02">#20000000</color>
+
+        <!--白-->
+    <color name="color_fc">#c0ffffff</color>
+    <color name="color_fa">#a0ffffff</color>
+
+
+
+
+    <!--主要用于字体颜色-->
+        <!--黑-->
+    <color name="color_515151">#515151</color>
+    <color name="color_8e8e8e">#8e8e8e</color>
+    <color name="color_bbbbbb">#bbbbbb</color>
+        <!--白-->
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_eeeeee">#eeeeee</color>
+
+
+
+
+
+
+
+
+
+    <!-- 心情颜色 -->
+    <color name="color_kaixin">#87A6CD</color>
+    <color name="color_chongshi">#CDB087</color>
+    <color name="color_jingxi">#878FCD</color>
+    <color name="color_deyi">#CD9C87</color>
+    <color name="color_nuanxin">#96CD87</color>
+    <color name="color_pingjing">#87CDCC</color>
+    <color name="color_nanguo">#87CDB7</color>
+    <color name="color_fanzao">#CDA687</color>
+    <color name="color_mimang">#87CDCB</color>
+    <color name="color_gudu">#87ABCD</color>
+    <color name="color_shengqi">#CD8787</color>
+    <color name="color_ganga">#9E87CD</color>
+    <color name="color_weiqu">#87CDA3</color>
+    <color name="color_tianmi">#CD87C1</color>
+    <color name="color_mengjing">#A587CD</color>
+    <color name="color_pibei">#CDC287</color>
+    <color name="color_taobi">#87CD87</color>
+    <color name="color_buzhidao">#CBCBCB</color>
+
+    <integer-array name="mood_color">
+        <item>@color/color_kaixin</item>
+        <item>@color/color_chongshi</item>
+        <item>@color/color_jingxi</item>
+        <item>@color/color_deyi</item>
+        <item>@color/color_nuanxin</item>
+        <item>@color/color_pingjing</item>
+        <item>@color/color_nanguo</item>
+        <item>@color/color_fanzao</item>
+        <item>@color/color_mimang</item>
+        <item>@color/color_gudu</item>
+        <item>@color/color_shengqi</item>
+        <item>@color/color_ganga</item>
+        <item>@color/color_weiqu</item>
+        <item>@color/color_tianmi</item>
+        <item>@color/color_mengjing</item>
+        <item>@color/color_pibei</item>
+        <item>@color/color_taobi</item>
+        <item>@color/color_buzhidao</item>
+    </integer-array>
+
+
+
+    <!-- 收入支出颜色 -->
+    <color name="color_enter">#C98484</color>
+    <color name="color_pay">#96C984</color>
+
+
+    <!-- 完成，删除 颜色 -->
+    <color name="color_delete">#B84545</color>
+    <color name="color_complete">#7AA56B</color>
+    <color name="color_complete_1">#C2E8B4</color>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

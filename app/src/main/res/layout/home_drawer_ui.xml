@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+        <ImageView
+            android:id="@+id/id_home_drawer_imageView_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_drawer_my_bg" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_05"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <com.pikachu.record.view.radius.QMUIRadiusImageView
+                android:id="@+id/id_home_drawer_imageView_2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/home_drawer_my_bg"
+                android:layout_marginLeft="20dp"
+                app:qmui_border_color="@color/color_ffffff"
+                app:qmui_border_width="3dp"
+                app:qmui_is_circle="true" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/app_name"
+                    android:textColor="@color/color_ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/id_home_drawer_textView_1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/emil_text_test"
+                    android:textColor="@color/color_fa"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/id_home_drawer_textView_2"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/id_home_drawer_recyclerView_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

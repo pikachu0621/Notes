@@ -1,0 +1,200 @@
+<resources>
+    <string name="app_name">随手记</string>
+    <string name="main_1">—  记录生活记录自己  —</string>
+
+
+    <!--主页  侧滑-->
+    <string name="home_drawer_my">我的小窝</string>
+    <string name="home_drawer_mood">我的心情</string>
+    <string name="home_drawer_task">任务管理</string>
+    <string name="home_drawer_diary">笔记管理</string>
+    <string name="home_drawer_account">账单管理</string>
+    <string name="home_drawer_set">设置</string>
+
+    <!--主页 心情CardView-->
+    <string name="home_main_mood_1">最近一个月您出现最多的心情为</string>
+    <string name="home_main_mood_1_1">次数为</string>
+    <string name="home_main_mood_1_2">次</string>
+    <string name="home_main_mood_2">好心情</string>
+    <string name="home_main_mood_3">坏心情</string>
+    <string name="home_main_mood_4">25 次</string>
+    <string name="home_main_mood_5">没有哦</string>
+    <string name="home_main_mood_6">添加更多</string>
+    <string name="home_main_mood_7">最近任务</string>
+    <string name="home_main_mood_8">账单管理</string>
+    <string name="home_main_mood_9">最近笔记</string>
+    <string name="home_main_mood_10">———  没有更多了哦  ———</string>
+
+    <!--主页 任务listUI-->
+    <string name="home_main_list_1">未完成</string>
+    <string name="home_main_list_2">提醒时间</string>
+    <string name="home_main_list_3">今天 13:20</string>
+    <string name="home_main_list_4">删除</string>
+    <string name="home_main_list_5">完成</string>
+    <string name="home_main_list_6">已完成</string>
+    <string name="home_main_list_7">昨天</string>
+    <string name="home_main_list_8">明天</string>
+
+    <!--主页 账单UI-->
+    <string name="home_main_account_1">今天</string>
+    <string name="home_main_account_2">本月</string>
+    <string name="home_main_account_3">本年</string>
+    <string name="home_main_account_4">00.00</string>
+    <string name="home_main_account_5">还没有记过账哦</string>
+    <string name="home_main_account_6">05月01日 - 05月30日</string>
+    <string name="home_main_account_7">今天共有</string>
+    <string name="home_main_account_8">条记录</string>
+    <string name="home_main_account_9">MM月dd日</string>
+    <string name="home_main_account_10">年度</string>
+
+    <!--主页 日记listUI-->
+    <string name="mood_activity_1">我的心情</string>
+    <string name="diary_activity_1">我的笔记</string>
+    <string name="task_activity_1">我的任务</string>
+	
+
+    <!--主页 AddButtonView-->
+    <string name="home_mood">添加心情</string>
+    <string name="home_task">添加任务</string>
+    <string name="home_account">添加账单</string>
+    <string name="home_diary">添加笔记</string>
+
+
+
+    <!--    mood Activity  -->
+    <string name="mood_complete">完成</string>
+    <string name="mood_mood_list">我今天的心情：</string>
+    <string name="mood_mood_list_1">心情备注：</string>
+    <string name="mood_mood_list_2">今天又是充满希望的一天ʘᴗʘ</string>
+    <string name="mood_mood_list_3">更新数据</string>
+    <string name="mood_mood_list_4">取消</string>
+
+    
+    <!--    account Activity  -->
+    <string name="account_title">账单标题：</string>
+    <string name="account_title_hint">如：买菜/加班/撸串</string>
+    <string name="account_entrance">收入</string>
+    <string name="account_outlet">支出</string>
+    <string name="account_remark">账单备注：</string>
+    <string name="account_remark_hint">此账单没有备注哦 @_@</string>
+    
+    
+   
+	<!--    diary Activity  -->
+	<string name="diary_title">笔记标题：</string>
+	<string name="diary_image">选择图片：</string>
+    <string name="diary_text">笔记内容：</string>
+    <string name="diary_title_init">物理笔记</string>
+    <string name="diary_text_init">在理想情况下...</string>
+    
+    
+    <!--    task Activity  -->
+    <string name="task_title">任务标题：</string>
+    <string name="task_text">任务备注：</string>
+    <string name="task_time_1">今天 16:22:08 创建</string>
+    <string name="task_time_2">今天 18:22:23 提醒</string>
+    <string name="task_edit">编辑</string>
+    <string name="task_choose_time">选着提醒时间：</string>
+    <string name="task_choose_time_1">未选着</string>
+    <string name="task_choose_time_2">选着时间</string>
+    
+	
+
+
+
+
+
+
+
+
+    <!--所有心情-->
+    <string name="string_kaixin">开兴</string>
+    <string name="string_chongshi">充实</string>
+    <string name="string_jingxi">惊喜</string>
+    <string name="string_deyi">得意</string>
+    <string name="string_nuanxin">暖心</string>
+    <string name="string_pingjing">平静</string>
+    <string name="string_nanguo">难过</string>
+    <string name="string_fanzao">烦躁</string>
+    <string name="string_mimang">迷茫</string>
+    <string name="string_gudu">孤独</string>
+    <string name="string_shengqi">生气</string>
+    <string name="string_ganga">尴尬</string>
+    <string name="string_weiqu">委屈</string>
+    <string name="string_tianmi">甜蜜</string>
+    <string name="string_mengjing">梦境</string>
+    <string name="string_pibei">疲惫</string>
+    <string name="string_taobi">逃避</string>
+    <string name="string_buzhidao">不知道</string>
+    <!--所有心情[]-->
+    <string-array name="mood_str">
+        <item>@string/string_kaixin</item>
+        <item>@string/string_chongshi</item>
+        <item>@string/string_jingxi</item>
+        <item>@string/string_deyi</item>
+        <item>@string/string_nuanxin</item>
+        <item>@string/string_pingjing</item>
+        <item>@string/string_nanguo</item>
+        <item>@string/string_fanzao</item>
+        <item>@string/string_mimang</item>
+        <item>@string/string_gudu</item>
+        <item>@string/string_weiqu</item>
+        <item>@string/string_tianmi</item>
+        <item>@string/string_mengjing</item>
+        <item>@string/string_pibei</item>
+        <item>@string/string_taobi</item>
+        <item>@string/string_buzhidao</item>
+    </string-array>
+
+
+    <!--初始值-->
+    <string-array name="main_mood_str">
+        <item>虽然明天有无限个可能，但今天的夕阳也不容错过</item>
+        <item>你的每天都不容过</item>
+        <item>色彩源于生活</item>
+        <item>您是否还记得，前天的心情</item>
+    </string-array>
+
+    <string-array name="main_task_str">
+        <item>下午开始学习</item>
+        <item>荒废了一个月的java课程得拿出来看看了</item>
+        <item>明天下午拿快递</item>
+        <item>放了几天的快递明天可不能忘了</item>
+        <item>球赛</item>
+        <item>晚上的球赛可不能忘了，要看就看直播</item>
+    </string-array>
+    <string name="main_task_1">2020/06/07 17:21:00</string>
+
+    <string-array name="main_account_str">
+        <item>买菜</item>
+        <item>下午买了一条鱼，准备试试红烧鱼</item>
+        <item>上网</item>
+        <item>又玩了一下午，就快上钻石了，不亏不亏</item>
+        <item>买了张火车票</item>
+        <item>过几天就出去打工咯，开始大多数的命运</item>
+    </string-array>
+
+    <string-array name="main_diary_str">
+        <item>Java笔记</item>
+        <item>public class HelloWorld {\n    /* 第一个Java程序\n     * 它将打印字符串 Hello World\n     */\n    public static void main(String []args) {\n        System.out.println("Hello World"); // 打印 Hello World\n    }\n}</item>
+        <item>JavaScript笔记</item>
+        <item>alert("我的第一个 JavaScript");\nalert("我的第二个 JavaScript");</item>
+        <item>爬山</item>
+        <item>屋里待的太久了，偶然出浪浪，整整野炊美滋滋 ^_^</item>
+    </string-array>
+
+
+
+
+
+
+
+
+    <string name="toast_main_1">随手记</string>
+    <string name="long_text_test">TopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopViewTopView</string>
+    <string name="emil_text_test">pikachu@pikachu.like</string>
+
+
+</resources>
+
+

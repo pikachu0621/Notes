@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/color_ffffff">
+
+    <RelativeLayout
+        android:id="@+id/id_account_item_linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+       
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+            
+            
+            
+            <TextView
+                android:id="@+id/id_account_item_text_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/home_main_mood_2"
+                android:textColor="@color/color_515151"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            
+            <TextView
+                android:id="@+id/id_account_item_text_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ellipsize="end"
+                android:maxLines="4"
+                android:text="@string/home_main_mood_2"
+                android:textColor="@color/color_8e8e8e"
+                android:textSize="13sp"
+                android:textStyle="bold"/>
+
+
+        </LinearLayout>
+        
+        
+        
+        
+        
+        
+        
+        
+        <TextView
+            android:id="@+id/id_account_item_text_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/account_entrance"
+            android:textColor="@color/color_pay"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:gravity="right"/>
+
+        
+        
+        
+        <TextView
+            android:id="@+id/id_account_item_text_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/home_main_mood_2"
+            android:textColor="@color/color_bbbbbb"
+            android:textSize="10sp"
+            android:gravity="right"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"/>
+
+        
+        
+        
+        
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+

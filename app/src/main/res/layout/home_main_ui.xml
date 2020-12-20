@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pikachu.record.view.top.TopView
+        android:id="@+id/id_home_main_topView_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:IsShowStateTow="gone"
+        app:LeftImage="@drawable/sideslip_icon"
+        app:RightImage="@drawable/recoil_icon"
+        app:Text="@string/app_name" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/id_home_main_swipe_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/id_home_main_topView_1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/home_main_scroll_ui" />
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_below="@+id/id_home_main_topView_1"
+        android:background="@drawable/gradient_top" />
+
+    <com.pikachu.record.view.add.AddButtonLayout
+        android:id="@+id/id_home_main_AddButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:is_show="false"
+        app:max_bottom_margin="70dp"
+        app:max_right_margin="35dp"
+        app:min_to_max_distance="120dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="30dp"
+            app:cardElevation="6dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/add_icon" />
+        </androidx.cardview.widget.CardView>
+
+
+        <com.pikachu.record.view.add.AddButtonView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image_is_circle="true"
+            app:image_size="45dp"
+            app:src="@drawable/home_mood_icon"
+            app:text="@string/home_mood"
+            app:text_image_margin="5dp"
+            app:text_size="4.5sp" />
+
+
+        <com.pikachu.record.view.add.AddButtonView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image_is_circle="true"
+            app:image_size="45dp"
+            app:src="@drawable/home_task_icon"
+            app:text="@string/home_task"
+            app:text_image_margin="5dp"
+            app:text_size="4.5sp" />
+
+        <com.pikachu.record.view.add.AddButtonView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image_is_circle="true"
+            app:image_size="45dp"
+            app:src="@drawable/home_diary_icon"
+            app:text="@string/home_diary"
+            app:text_image_margin="5dp"
+            app:text_size="4.5sp" />
+
+        <com.pikachu.record.view.add.AddButtonView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:image_is_circle="true"
+            app:image_size="45dp"
+            app:src="@drawable/home_account_icon"
+            app:text="@string/home_account"
+            app:text_image_margin="5dp"
+            app:text_size="4.5sp" />
+
+
+    </com.pikachu.record.view.add.AddButtonLayout>
+</RelativeLayout>

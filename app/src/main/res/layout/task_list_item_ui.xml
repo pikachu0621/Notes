@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="10dp">
+
+		<View
+			android:layout_width="14dp"
+			android:layout_height="14dp"
+			android:background="@drawable/add_buttom_bg"/>
+
+		<TextView
+			android:id="@+id/id_task_item_text_1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:maxLines="1"
+			android:text="@string/task_time_1"
+			android:textColor="@color/color_515151"
+			android:textSize="9sp"
+			android:layout_marginLeft="10dp"
+			android:textStyle="bold"/>
+
+		<TextView
+			android:id="@+id/id_task_item_text_2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:ellipsize="end"
+			android:maxLines="1"
+			android:text="@string/task_time_2"
+			android:textColor="@color/color_515151"
+			android:textSize="9sp"
+			android:layout_marginLeft="20dp"
+			android:textStyle="bold"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="180dp"
+		android:layout_marginLeft="10dp">
+
+		<View
+			android:layout_marginLeft="7dp"
+			android:layout_width="0.5dp"
+			android:layout_height="match_parent"
+			android:background="@color/colorPrimary"/>
+
+		<androidx.cardview.widget.CardView
+			android:layout_width="match_parent"
+			android:layout_height="140dp"
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_marginBottom="10dp"
+			app:cardElevation="6dp"
+			app:cardCornerRadius="10dp">
+
+			<LinearLayout
+				android:id="@+id/id_task_item_linear_1"
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<TextView
+					android:layout_marginTop="10dp"
+					android:layout_marginLeft="10dp"
+					android:id="@+id/id_task_item_text_3"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:ellipsize="end"
+					android:maxLines="1"
+					android:text="@string/home_main_mood_2"
+					android:textColor="@color/color_515151"
+					android:textSize="14sp"
+					android:textStyle="bold"/>
+
+				<TextView
+					android:layout_marginLeft="10dp"
+					android:id="@+id/id_task_item_text_4"
+					android:layout_width="match_parent"
+					android:layout_height="0dp"
+					android:layout_marginTop="10dp"
+					android:ellipsize="end"
+					android:maxLines="4"
+					android:text="@string/home_main_mood_2"
+					android:textColor="@color/color_8e8e8e"
+					android:textSize="12sp"
+					android:textStyle="bold"
+					android:layout_weight="1.0"/>
+
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="0.5dp"
+					android:background="@color/color_bbbbbb"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"/>
+
+				<LinearLayout
+					android:orientation="horizontal"
+					android:layout_width="match_parent"
+					android:layout_height="40dp"
+					android:gravity="center_vertical">
+
+					<LinearLayout
+                        android:id="@+id/id_task_item_linear_2"
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:layout_weight="1.0"
+						android:background="@drawable/bg_selector">
+
+						<ImageView
+							android:src="@drawable/task_finish_icon"
+							android:layout_width="20dp"
+							android:layout_height="20dp"/>
+
+						<TextView
+							android:id="@+id/id_task_item_text_5"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/mood_complete"
+							android:textColor="@color/color_complete"
+							android:textSize="13sp"
+							android:layout_marginLeft="3dp"
+							android:textStyle="bold"/>
+
+					</LinearLayout>
+
+					<LinearLayout
+                        android:id="@+id/id_task_item_linear_3"
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:layout_weight="1.0"
+                        android:background="@drawable/bg_selector">
+
+						<ImageView
+							android:src="@drawable/task_edit_icon"
+							android:layout_width="19dp"
+							android:layout_height="19dp"/>
+
+						<TextView
+							android:id="@+id/id_task_item_text_6"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/task_edit"
+							android:textColor="@color/colorPrimary"
+							android:textSize="13sp"
+							android:layout_marginLeft="4dp"
+							android:textStyle="bold"/>
+
+					</LinearLayout>
+
+					<LinearLayout
+                        android:id="@+id/id_task_item_linear_4"
+						android:orientation="horizontal"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:gravity="center"
+						android:layout_weight="1.0"
+                        android:background="@drawable/bg_selector">
+
+						<ImageView
+							android:src="@drawable/task_delete_icon"
+							android:layout_width="19dp"
+							android:layout_height="19dp"/>
+
+						<TextView
+							android:id="@+id/id_task_item_text_7"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:text="@string/home_main_list_4"
+							android:textColor="@color/color_delete"
+							android:textSize="13sp"
+							android:layout_marginLeft="4dp"
+							android:textStyle="bold"/>
+
+					</LinearLayout>
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</androidx.cardview.widget.CardView>
+
+	</LinearLayout>
+
+</LinearLayout>
+
