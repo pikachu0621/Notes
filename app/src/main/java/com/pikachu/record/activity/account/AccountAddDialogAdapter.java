@@ -158,7 +158,7 @@ public class AccountAddDialogAdapter {
                     super.onStart();
                     if (box_view == null) return;
                     View parent = (View) box_view.getParent();
-                    BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
+                    BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(parent);
                     box_view.measure(0, 0);
                     behavior.setPeekHeight(box_view.getMeasuredHeight());
                     CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) parent.getLayoutParams();
@@ -178,19 +178,8 @@ public class AccountAddDialogAdapter {
             dialog.setContentView(box_view);
             //findViewById(R.id.design_bottom_sheet)
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            zTextView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View p1) {
-                    isSz(budget = true);
-
-                }
-            });
-            sTextView.setOnClickListener(new OnClickListener() {
-                @Override
-                public void onClick(View p1) {
-                    isSz(budget = false);
-                }
-            });
+            zTextView.setOnClickListener(p1 -> isSz(budget = true));
+            sTextView.setOnClickListener(p1 -> isSz(budget = false));
             zsEditView.addTextChangedListener(new MoneyTextWatcher(zsEditView));
 
         }

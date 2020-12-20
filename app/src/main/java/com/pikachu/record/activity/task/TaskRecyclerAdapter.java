@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -83,24 +82,9 @@ public class TaskRecyclerAdapter extends RecyclerView.Adapter {
         
         itemHolder.linearLayout_2.setVisibility(task.getIsAs()?View.GONE:View.VISIBLE);
         
-        itemHolder.linearLayout_2.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.finishOnClick(p1,position,taskData.get(position));
-                }
-            });
-        itemHolder.linearLayout_3.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.editorOnClick(p1,position,taskData.get(position));
-                }
-            });
-        itemHolder.linearLayout_4.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.deleteOnClick(p1,position,taskData.get(position));
-                }
-            });
+        itemHolder.linearLayout_2.setOnClickListener(p1 -> itemOnClick.finishOnClick(p1,position,taskData.get(position)));
+        itemHolder.linearLayout_3.setOnClickListener(p1 -> itemOnClick.editorOnClick(p1,position,taskData.get(position)));
+        itemHolder.linearLayout_4.setOnClickListener(p1 -> itemOnClick.deleteOnClick(p1,position,taskData.get(position)));
         
         
     }

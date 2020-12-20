@@ -2,7 +2,6 @@ package com.pikachu.record.activity.task;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -25,10 +24,7 @@ import java.util.List;
 import android.support.multidex.MultiDex;*/
 
 
-
-
-
-public class TaskActivity extends AppCompatActivity implements  TaskRecyclerAdapter.ItemOnClick {
+public class TaskActivity extends AppCompatActivity implements TaskRecyclerAdapter.ItemOnClick {
 
 
     private RecyclerView recyclerView;
@@ -56,20 +52,19 @@ public class TaskActivity extends AppCompatActivity implements  TaskRecyclerAdap
         super.onCreate(savedInstanceState);
         ToolState.setFullScreen(this, true, false);//全屏
         setContentView(R.layout.task_activity);
-		findView();
+        findView();
         init();
     }
 
-	private void findView() {
+    private void findView() {
 
-		recyclerView = findViewById(R.id.id_task_recycler_1);
-		topView = findViewById(R.id.id_task_topView_1);
-		swipe = findViewById(R.id.id_task_swipeRefresh_1);
+        recyclerView = findViewById(R.id.id_task_recycler_1);
+        topView = findViewById(R.id.id_task_topView_1);
+        swipe = findViewById(R.id.id_task_swipeRefresh_1);
 
-		task_1 = getResources().getString(R.string.task_activity_1);
+        task_1 = getResources().getString(R.string.task_activity_1);
 
-	}
-
+    }
 
 
     private void init() {
@@ -83,33 +78,19 @@ public class TaskActivity extends AppCompatActivity implements  TaskRecyclerAdap
 
 
         //刷新
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
+        swipe.setOnRefreshListener(() -> {
+            getData();
+            swipe.setRefreshing(false);
+        });
 
-				@Override
-				public void onRefresh() {
-					getData();
-					swipe.setRefreshing(false);
-				}
-			});
 
-		
-         //初始addDialog
-         taskAddDialogAdapter = new TaskAddDialogAdapter(this);
-         taskAddDialogAdapter.setEndAdd(new TaskAddDialogAdapter.EndAdd(){
-         @Override
-         public void endAdd() {
-         getData();
-         }
-         });
-         
+        //初始addDialog
+        taskAddDialogAdapter = new TaskAddDialogAdapter(this);
+        taskAddDialogAdapter.setEndAdd(this::getData);
+
 
         //TopView添加 按键点击事件
-        topView.setRightImageOnClick(new OnClickListener(){
-				@Override
-				public void onClick(View p1) {
-					taskAddDialogAdapter.showDialog(true,true);
-				}
-			});
+        topView.setRightImageOnClick(p1 -> taskAddDialogAdapter.showDialog(true, true));
 
     }
 
@@ -120,60 +101,44 @@ public class TaskActivity extends AppCompatActivity implements  TaskRecyclerAdap
         taskData = initialSql.getTaskData();
         Collections.reverse(taskData);
         if (taskRecyclerAdapter != null) {
-            taskRecyclerAdapter.setTaskData(taskData);    
+            taskRecyclerAdapter.setTaskData(taskData);
             taskRecyclerAdapter.notifyDataSetChanged();
         }
 
     }
 
 
-    
-    
-    
-    
-    
-    
-    
     @Override
     public void finishOnClick(View v, int position, Task task) {
         task.setIsAs(true);
         initialSql.updateTask(task);
         getData();
         //发布更新事件
-        EventBus.getDefault().post(new DataSynEvent());        
+        EventBus.getDefault().post(new DataSynEvent());
     }
 
-    
-    
+
     @Override
     public void editorOnClick(View v, int position, Task task) {
-        taskAddDialogAdapter.showDialog(true,true,task);
+        taskAddDialogAdapter.showDialog(true, true, task);
     }
-
 
 
     @Override
     public void deleteOnClick(View v, int position, final Task task) {
 
         PDialog.PDialog(this)
-            .setMsg("是否删除此条任务数据？")
-            .setLeftStr("确定删除", new PDialog.DialogTopOnClick(){
-                @Override
-                public void onClick(View v, PDialog pDialog) {
+                .setMsg("是否删除此条任务数据？")
+                .setLeftStr("确定删除", (v1, pDialog) -> {
                     initialSql.deleteTask(task);
                     pDialog.dismiss();
                     getData();
                     //发布更新事件
                     EventBus.getDefault().post(new DataSynEvent());
-                }
-            })
-            .setRightStr("取消删除", null)
-            .show();
+                })
+                .setRightStr("取消删除", null)
+                .show();
     }
 
-    
-    
-    
-    
-    
+
 }

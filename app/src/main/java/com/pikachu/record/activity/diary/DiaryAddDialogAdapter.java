@@ -45,23 +45,20 @@ public class DiaryAddDialogAdapter {
     private InitialSql initialSql;
     private BottomSheetDialog dialog;
     private View box_view;
-    private TextView finishTextView,titleTextView,addImageTextView;
-	private QMUIRadiusImageView addImageImageView;
+    private TextView finishTextView, titleTextView, addImageTextView;
+    private QMUIRadiusImageView addImageImageView;
     private ImageView addImageImageView_2;
-    private EditText addTitleEditView,addTextEditView;
-    private String upStr,addStr,titleInit,textInit,finishStr;
+    private EditText addTitleEditView, addTextEditView;
+    private String upStr, addStr, titleInit, textInit, finishStr;
     private String imagePath;
-
 
 
     public interface EndAdd {
         void endAdd();
     }
-    private EndAdd endAdd=new EndAdd(){
-        @Override
-        public void endAdd() {}
-    };
 
+    private EndAdd endAdd = () -> {
+    };
 
 
     public DiaryAddDialogAdapter(Context context) {
@@ -70,61 +67,39 @@ public class DiaryAddDialogAdapter {
         activity = (Activity) context;
         upStr = context.getResources().getString(R.string.mood_mood_list_3);
         addStr = context.getResources().getString(R.string.home_diary);
-		titleInit = context.getResources().getString(R.string.diary_title_init);
-		textInit = context.getResources().getString(R.string.diary_text_init);
-	    finishStr = context.getResources().getString(R.string.mood_complete);
+        titleInit = context.getResources().getString(R.string.diary_title_init);
+        textInit = context.getResources().getString(R.string.diary_text_init);
+        finishStr = context.getResources().getString(R.string.mood_complete);
 
-	    initialSql = new InitialSql(context);
+        initialSql = new InitialSql(context);
 
     }
 
 
     //添加
     public void showDialog(boolean cancelable, boolean cancel) {
-        imagePath="";
+        imagePath = "";
         if (dialog == null) {
             findDialogView();
-	    }
-        
-        dialogF(cancelable, cancel, addStr, "", "", new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addAndUpData(false, null, imagePath);
-                }
-            }, new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    ReturnImagePath.toPhoto(activity);
-                }
-            });
+        }
+
+        dialogF(cancelable, cancel, addStr, "", "", p1 -> addAndUpData(false, null, imagePath), p1 -> ReturnImagePath.toPhoto(activity));
         addImageImageView_2.setVisibility(View.VISIBLE);
         addImageImageView.setImageDrawable(null);
     }
 
 
-
-
     //更新，和详情
     public void showDialog(boolean cancelable, boolean cancel, final Diary diary) {
         if (dialog == null) {
-			findDialogView();
+            findDialogView();
         }
-		dialogF(cancelable, cancel, upStr, diary.getTitle(), diary.getText(), new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-					addAndUpData(true, diary, imagePath == null ||
-                                 imagePath == "" ? diary.getImagePath(): imagePath);
-                }
-            }, new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    ReturnImagePath.toPhoto(activity);
-                }
-            });
-        if(diary.getImagePath()==null || diary.getImagePath().equals("")){
+        dialogF(cancelable, cancel, upStr, diary.getTitle(), diary.getText(), p1 -> addAndUpData(true, diary, imagePath == null ||
+                imagePath == "" ? diary.getImagePath() : imagePath), p1 -> ReturnImagePath.toPhoto(activity));
+        if (diary.getImagePath() == null || diary.getImagePath().equals("")) {
             addImageImageView_2.setVisibility(View.VISIBLE);
             addImageImageView.setImageDrawable(null);
-        }else{
+        } else {
             addImageImageView_2.setVisibility(View.GONE);
 
             Glide.with(context).load(Uri.fromFile(new File(diary.getImagePath()))).into(addImageImageView);
@@ -133,27 +108,21 @@ public class DiaryAddDialogAdapter {
     }
 
 
+    private void findDialogView() {
 
 
-
-
-
-
-	private void findDialogView() {
-
-
-        dialog = new BottomSheetDialog(context,R.style.BottomSheetEdit){
+        dialog = new BottomSheetDialog(context, R.style.BottomSheetEdit) {
             @Override
             public void onStart() {
-                super. onStart() ;
+                super.onStart();
                 if (box_view == null) return;
-                View parent = (View) box_view. getParent();
-                BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
-                box_view. measure(0, 0);
-                behavior.setPeekHeight(box_view. getMeasuredHeight());
-                CoordinatorLayout.LayoutParams params =(CoordinatorLayout. LayoutParams) parent.getLayoutParams();
-                params. gravity = Gravity.TOP | Gravity. CENTER_HORIZONTAL;
-                parent. setLayoutParams(params) ;
+                View parent = (View) box_view.getParent();
+                BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(parent);
+                box_view.measure(0, 0);
+                behavior.setPeekHeight(box_view.getMeasuredHeight());
+                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) parent.getLayoutParams();
+                params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+                parent.setLayoutParams(params);
 
             }
         };
@@ -162,46 +131,43 @@ public class DiaryAddDialogAdapter {
         dialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
 
-		titleTextView = box_view.findViewById(R.id.id_diary_add_data_text_2);
-		finishTextView = box_view.findViewById(R.id.id_diary_add_data_text_1);
-		addTitleEditView = box_view.findViewById(R.id.id_diary_add_data_edit_1);
-		addImageTextView = box_view.findViewById(R.id.id_diary_add_data_text_3);
-		addImageImageView = box_view.findViewById(R.id.id_diary_add_data_image_1);
+        titleTextView = box_view.findViewById(R.id.id_diary_add_data_text_2);
+        finishTextView = box_view.findViewById(R.id.id_diary_add_data_text_1);
+        addTitleEditView = box_view.findViewById(R.id.id_diary_add_data_edit_1);
+        addImageTextView = box_view.findViewById(R.id.id_diary_add_data_text_3);
+        addImageImageView = box_view.findViewById(R.id.id_diary_add_data_image_1);
         addImageImageView_2 = box_view.findViewById(R.id.id_diary_add_data_image_2);
-		addTextEditView = box_view.findViewById(R.id.id_diary_add_data_edit_2);
-	}
+        addTextEditView = box_view.findViewById(R.id.id_diary_add_data_edit_2);
+    }
 
 
-	private void dialogF(boolean cancelable, boolean cancel,
-						 String addTitle, String titleStr, String textStr,
-						 OnClickListener onClick, OnClickListener onClick2) {
+    private void dialogF(boolean cancelable, boolean cancel,
+                         String addTitle, String titleStr, String textStr,
+                         OnClickListener onClick, OnClickListener onClick2) {
 
-		dialog.setCancelable(cancelable);
-		dialog.setCanceledOnTouchOutside(cancel);
-		dialog.show();
-		titleTextView.setText(addTitle);
-		addTitleEditView.setText(titleStr);
-		addTextEditView.setText(textStr);
-		finishTextView.setOnClickListener(onClick);
+        dialog.setCancelable(cancelable);
+        dialog.setCanceledOnTouchOutside(cancel);
+        dialog.show();
+        titleTextView.setText(addTitle);
+        addTitleEditView.setText(titleStr);
+        addTextEditView.setText(textStr);
+        finishTextView.setOnClickListener(onClick);
         addImageImageView.setOnClickListener(onClick2);
-        
-	}
 
-
+    }
 
 
     //isUpData=false 添加数据，isUpData=true  更新数据;
     private void addAndUpData(boolean isUpData, Diary diary, String path) {
         String title = addTitleEditView.getText().toString();
-		String text = addTextEditView.getText().toString();
+        String text = addTextEditView.getText().toString();
 
 
-		if (title.equals(""))
+        if (title.equals(""))
             title = titleInit;
 
         if (text.equals(""))
             text = textInit;
-
 
 
         if (isUpData) {
@@ -210,7 +176,7 @@ public class DiaryAddDialogAdapter {
             diary.setImagePath(path);
             initialSql.updateDiary(diary);
         } else {
-			initialSql.setOneDiaryData(new Diary(null, title, text, "", path == null || path.equals("") ?"": path, ToolTime.getItem(ToolPublic.TIME_DATA)));
+            initialSql.setOneDiaryData(new Diary(null, title, text, "", path == null || path.equals("") ? "" : path, ToolTime.getItem(ToolPublic.TIME_DATA)));
         }
         ToolOther.tw(activity, finishStr, R.drawable.toast_true_icon);
         cancelDialog();
@@ -220,25 +186,16 @@ public class DiaryAddDialogAdapter {
     }
 
 
-
-
-
-
-
-
     //添加或者刷新完成后
     public void setEndAdd(EndAdd endAdd) {
-        this.endAdd = endAdd;   
+        this.endAdd = endAdd;
     }
 
 
-
-	//关闭
+    //关闭
     public void cancelDialog() {
         if (dialog != null) dialog.cancel();
     }
-
-
 
 
     //设置路径和图片
@@ -246,19 +203,19 @@ public class DiaryAddDialogAdapter {
 
 
         if (imagePath == null || imagePath.equals("")) {
-            this.imagePath = "";   
+            this.imagePath = "";
             addImageImageView_2.setVisibility(View.VISIBLE);
             addImageImageView.setImageDrawable(null);
         } else {
 
-            String pathImage=context.getExternalFilesDir("").toString() +ToolPublic.IMAGE_PATH + ToolFile.getFileMD5(imagePath);
+            String pathImage = context.getExternalFilesDir("").toString() + ToolPublic.IMAGE_PATH + ToolFile.getFileMD5(imagePath);
             if (ToolFile.copyFile(imagePath, pathImage)) {
                 //addImageImageView.setImageURI(Uri.fromFile(new File(pathImage)));
-                Glide.with(context).load(Uri.parse(pathImage)).into(addImageImageView);
+                Glide.with(context).load(Uri.fromFile(new File(pathImage))).into(addImageImageView);
                 this.imagePath = pathImage;
             } else {
                 //addImageImageView.setImageURI(Uri.fromFile(new File(imagePath)));
-                Glide.with(context).load(Uri.parse(imagePath)).into(addImageImageView);
+                Glide.with(context).load(Uri.fromFile(new File(imagePath))).into(addImageImageView);
                 this.imagePath = imagePath;
             }
             addImageImageView_2.setVisibility(View.GONE);
@@ -266,21 +223,7 @@ public class DiaryAddDialogAdapter {
         }
 
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

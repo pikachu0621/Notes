@@ -2,7 +2,6 @@ package com.pikachu.record.activity.diary;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -88,33 +87,20 @@ public class DiaryActivity extends ReturnImagePath implements  DiaryRecyclerAdap
 
 
         //刷新
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
-				@Override
-				public void onRefresh() {
-					getData();
-					swipe.setRefreshing(false);
-				}
-			});
+        swipe.setOnRefreshListener(() -> {
+            getData();
+            swipe.setRefreshing(false);
+        });
 
 
 		//初始addDialog
         diaryAddDialogAdapter = new DiaryAddDialogAdapter(this);
-        diaryAddDialogAdapter.setEndAdd(new DiaryAddDialogAdapter.EndAdd(){
-                @Override
-                public void endAdd() {
-					//弹窗添加完毕后
-                    getData();
-				}
-            });
+        //弹窗添加完毕后
+        diaryAddDialogAdapter.setEndAdd(this::getData);
 
 
         //TopView添加 按键点击事件
-        topView.setRightImageOnClick(new OnClickListener(){
-				@Override
-				public void onClick(View p1) {
-					diaryAddDialogAdapter.showDialog(true,true);
-				}
-			});
+        topView.setRightImageOnClick(p1 -> diaryAddDialogAdapter.showDialog(true,true));
 
             
             
@@ -150,16 +136,13 @@ public class DiaryActivity extends ReturnImagePath implements  DiaryRecyclerAdap
 
         PDialog.PDialog(this)
             .setMsg("是否删除此条笔记？")
-            .setLeftStr("确定删除", new PDialog.DialogTopOnClick(){
-                @Override
-                public void onClick(View v, PDialog pDialog) {
-                    initialSql.deleteDiary(diary);
-                    pDialog.dismiss();
-                    getData();
-                    ToolFile.deleteSingleFile(diary.getImagePath());
-                    //发布更新事件
-                    EventBus.getDefault().post(new DataSynEvent());
-                }
+            .setLeftStr("确定删除", (v1, pDialog) -> {
+                initialSql.deleteDiary(diary);
+                pDialog.dismiss();
+                getData();
+                ToolFile.deleteSingleFile(diary.getImagePath());
+                //发布更新事件
+                EventBus.getDefault().post(new DataSynEvent());
             })
             .setRightStr("取消删除", null)
             .show();

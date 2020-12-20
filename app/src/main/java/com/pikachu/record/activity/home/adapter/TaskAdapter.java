@@ -26,7 +26,7 @@ public class TaskAdapter {
     private final Context context;
     private final Activity activity;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
     private String string1;
     private String string2;
     private int color1;
@@ -91,7 +91,7 @@ public class TaskAdapter {
     private void setRecyclerViewAdapter(){
 
         if (adapter==null){
-            adapter = new RecyclerView.Adapter() {
+            adapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 @NonNull
                 @Override
                 public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -120,14 +120,7 @@ public class TaskAdapter {
 					
 					
 					
-                    itemHolder.complete.setOnClickListener(new OnClickListener(){
-
-							@Override
-							public void onClick(View v) {
-								taskActivityItemOnclick.completeOnClick(v,position,tasks.get(position));
-								
-							}
-						});
+                    itemHolder.complete.setOnClickListener(v -> taskActivityItemOnclick.completeOnClick(v,position,tasks.get(position)));
 					
 				
                     if (tasks.get(position).getIsAs()){
@@ -156,15 +149,15 @@ public class TaskAdapter {
 
                 class ItemHolder extends RecyclerView.ViewHolder{
 
-                    public TextView item;
-                    public TextView text;
-                    public TextView startTime;
-                    public TextView isAs;
-                    public TextView stopTime;
-                    public TextView delete;
-                    public TextView complete;
-                    private CardView cardView;
-                    private View view;
+                    public final TextView item;
+                    public final TextView text;
+                    public final TextView startTime;
+                    public final TextView isAs;
+                    public final TextView stopTime;
+                    public final TextView delete;
+                    public final TextView complete;
+                    private final CardView cardView;
+                    private final View view;
 
                     public ItemHolder(@NonNull View itemView) {
                         super(itemView);

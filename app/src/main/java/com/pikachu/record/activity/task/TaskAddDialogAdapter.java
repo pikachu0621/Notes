@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.pikachu.record.R;
@@ -47,8 +46,8 @@ public class TaskAddDialogAdapter {
     private BottomSheetDialog dialog;
     private TimeChoose timeChoose;
     private View box_view;
-    private TextView titleTextView,finishTextView,stopTimeTV;
-    private EditText msgEditView,titleEditView;
+    private TextView titleTextView, finishTextView, stopTimeTV;
+    private EditText msgEditView, titleEditView;
     private LinearLayout linear_1;
     private final String upStr;
     private final String addStr;
@@ -56,16 +55,12 @@ public class TaskAddDialogAdapter {
     private final String initStr;
 
 
-
     public interface EndAdd {
         void endAdd();
     }
-    private EndAdd endAdd=new EndAdd(){
-        @Override
-        public void endAdd() {
-        }
-    };
 
+    private EndAdd endAdd = () -> {
+    };
 
 
     public TaskAddDialogAdapter(Context context) {
@@ -81,65 +76,38 @@ public class TaskAddDialogAdapter {
     }
 
 
-
-
-
-
-
     public void showDialog(boolean cancelable, boolean cancel) {
-
-
-
-
-
 
 
         findDialogView();
         dialogH(cancelable, cancel, addStr,
-            ToolTime.getNextDay(new Date(), +1, ToolPublic.TIME_DATA), "", "", new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addAndUpData(false, null);
-                }
-            });
+                ToolTime.getNextDay(new Date(), +1, ToolPublic.TIME_DATA), "", "", p1 -> addAndUpData(false, null));
 
     }
-
-
 
 
     //更新，和详情
     public void showDialog(boolean cancelable, boolean cancel, final Task task) {
         findDialogView();
-        dialogH(cancelable, cancel, upStr, task.getStopTime(), task.getTitle(), task.getText(), new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addAndUpData(true, task);
-                }
-            });
+        dialogH(cancelable, cancel, upStr, task.getStopTime(), task.getTitle(), task.getText(), p1 -> addAndUpData(true, task));
     }
-
-
-
-
-
 
 
     private void findDialogView() {
 
         if (dialog == null) {
-            dialog = new BottomSheetDialog(context, R.style.BottomSheetEdit){
+            dialog = new BottomSheetDialog(context, R.style.BottomSheetEdit) {
                 @Override
                 public void onStart() {
-                    super. onStart() ;
+                    super.onStart();
                     if (box_view == null) return;
-                    View parent = (View) box_view. getParent();
-                    BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
-                    box_view. measure(0, 0);
-                    behavior.setPeekHeight(box_view. getMeasuredHeight());
-                    CoordinatorLayout.LayoutParams params =(CoordinatorLayout. LayoutParams) parent.getLayoutParams();
-                    params. gravity = Gravity.TOP | Gravity. CENTER_HORIZONTAL;
-                    parent. setLayoutParams(params) ;
+                    View parent = (View) box_view.getParent();
+                    BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(parent);
+                    box_view.measure(0, 0);
+                    behavior.setPeekHeight(box_view.getMeasuredHeight());
+                    CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) parent.getLayoutParams();
+                    params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+                    parent.setLayoutParams(params);
 
                 }
             };
@@ -148,7 +116,7 @@ public class TaskAddDialogAdapter {
             titleTextView = box_view.findViewById(R.id.id_task_add_data_text_2);
             finishTextView = box_view.findViewById(R.id.id_task_add_data_text_1);
 
-            linear_1 =  box_view.findViewById(R.id.id_task_add_data_linear_1);
+            linear_1 = box_view.findViewById(R.id.id_task_add_data_linear_1);
             stopTimeTV = box_view.findViewById(R.id.id_task_add_data_text_3);
 
             titleEditView = box_view.findViewById(R.id.id_task_add_data_edit_1);
@@ -157,7 +125,7 @@ public class TaskAddDialogAdapter {
 
             dialog.setContentView(box_view);
             dialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }    
+        }
     }
 
 
@@ -171,40 +139,26 @@ public class TaskAddDialogAdapter {
         stopTimeTV.setText(stopStr);
         titleEditView.setText(titleEdit);
         msgEditView.setText(msg);
-        finishTextView.setOnClickListener(finishOnClick);   
-        linear_1.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
+        finishTextView.setOnClickListener(finishOnClick);
+        linear_1.setOnClickListener(p1 -> {
 
-                    if (timeChoose == null) {
-                        timeChoose = new TimeChoose(context, new OnTimeSelectListener() {
-                            @Override
-                            public void onTimeSelect(Date date, View v) {//选中事件回调
-                                stopTimeTV.setText(ToolTime.date2String(date, ToolPublic.TIME_DATA));
-                            }
-                        }
-
-                        );
-                    }
-                    timeChoose.show(stopStr);
-
-
+            if (timeChoose == null) {
+                timeChoose = new TimeChoose(context, (date, v) -> {//选中事件回调
+                    stopTimeTV.setText(ToolTime.date2String(date, ToolPublic.TIME_DATA));
                 }
-            });
+
+                );
+            }
+            timeChoose.show(stopStr);
+
+
+        });
     }
-
-
-
-
 
 
     public void cancelDialog() {
         if (dialog != null) dialog.cancel();
     }
-
-
-
-
 
 
     //isUpData=false 添加数据，isUpData=true  更新数据;
@@ -219,7 +173,7 @@ public class TaskAddDialogAdapter {
             msg = initStr;
         if (stopTime.equals(""))
             stopTime = ToolTime.getItem(ToolPublic.TIME_DATA);
-            
+
 
         if (isUpData) {
             task.setTitle(title);
@@ -230,9 +184,8 @@ public class TaskAddDialogAdapter {
             initialSql.setOneTaskData(new Task(null, "", title, msg, stopTime, false, ToolTime.getItem(ToolPublic.TIME_DATA)));
             addAlarm(stopTime, task);
         }
-        
-        
-        
+
+
         ToolOther.tw(activity, finishStr, R.drawable.toast_true_icon);
         cancelDialog();
         //发布事件
@@ -240,60 +193,34 @@ public class TaskAddDialogAdapter {
         endAdd.endAdd();
     }
 
-    
-    
-    
-    
-    
-    
+
     //添加 定时
     public void addAlarm(String stopTime, Task task) {
-        
-        
+
+
 //        
 //        AlarmManagerTask.cancelAlarmBroadcast(context, task.getId(),
 //                                              AlarmReceiver.class);    
     }
 
-    
-    
+
     //删除 定时
-    public void deleteAlarm(int id){
-        
-        
-        
-        
+    public void deleteAlarm(int id) {
+
+
     }
-    
+
     //更新 定时
-    public void upAlarm(String stopTime,int id){
-
-
+    public void upAlarm(String stopTime, int id) {
 
 
     }
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 
 
     //添加或者刷新
     public void setEndAdd(EndAdd endAdd) {
-        this.endAdd = endAdd;   
+        this.endAdd = endAdd;
     }
-
-
-
-
-
-
 
 
 }

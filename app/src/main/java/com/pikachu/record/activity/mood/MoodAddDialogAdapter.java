@@ -4,30 +4,32 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.pikachu.record.R;
-import androidx.recyclerview.widget.RecyclerView;
-import android.view.ViewGroup;
-import java.util.Map;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import java.util.List;
-import com.pikachu.record.tool.ToolPublic;
-import androidx.annotation.NonNull;
-import android.widget.TextView;
-import android.view.View.OnClickListener;
-import android.widget.EditText;
+import com.pikachu.record.monitor.DataSynEvent;
 import com.pikachu.record.sql.data.InitialSql;
 import com.pikachu.record.sql.table.Mood;
-import com.pikachu.record.tool.ToolTime;
 import com.pikachu.record.tool.ToolOther;
+import com.pikachu.record.tool.ToolPublic;
+import com.pikachu.record.tool.ToolTime;
+
 import org.greenrobot.eventbus.EventBus;
-import com.pikachu.record.monitor.DataSynEvent;
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import android.view.Gravity;
+
+import java.util.List;
 
 
 //弹窗
@@ -53,10 +55,7 @@ public class MoodAddDialogAdapter {
     public interface EndAdd{
         void endAdd();
     }
-    private EndAdd endAdd=new EndAdd(){
-        @Override
-        public void endAdd() {
-        }
+    private EndAdd endAdd= () -> {
     };
     
     
@@ -77,12 +76,7 @@ public class MoodAddDialogAdapter {
     public void showDialog(boolean cancelable,boolean cancel){
         tPos=0;
         findDialogView();
-        dialogH(cancelable,cancel,addStr,"",new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addAndUpData(false,null);
-                }
-            });
+        dialogH(cancelable,cancel,addStr,"", p1 -> addAndUpData(false,null));
         
     }
     
@@ -93,12 +87,7 @@ public class MoodAddDialogAdapter {
     public void showDialog(boolean cancelable,boolean cancel,final Mood mood){
         tPos=mood.getMood();
         findDialogView();
-        dialogH(cancelable,cancel,upStr,mood.getText(),new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    addAndUpData(true,mood);
-                }
-            });
+        dialogH(cancelable,cancel,upStr,mood.getText(), p1 -> addAndUpData(true,mood));
     }
     
     
@@ -116,7 +105,7 @@ public class MoodAddDialogAdapter {
                     super. onStart() ;
                     if (box_view == null) return;
                     View parent = (View) box_view. getParent();
-                    BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
+                    BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(parent);
                     box_view. measure(0,0);
                     behavior.setPeekHeight(box_view. getMeasuredHeight());
                     CoordinatorLayout.LayoutParams params =(CoordinatorLayout. LayoutParams) parent.getLayoutParams();
@@ -135,6 +124,7 @@ public class MoodAddDialogAdapter {
             dialog.getWindow().findViewById(R.id.design_bottom_sheet).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         }else{
             LinearLayoutManager llm = (LinearLayoutManager) recyclerView.getLayoutManager();
+            assert llm != null;
             llm.scrollToPositionWithOffset(tPos, 0);
             llm.setStackFromEnd(false);
             adapter.notifyDataSetChanged();
@@ -167,7 +157,7 @@ public class MoodAddDialogAdapter {
     
     private void setDialogRecyclerAdapter(){
         
-       adapter=new RecyclerView.Adapter(){
+       adapter=new RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
             @Override
             public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup p1, int p2) {
@@ -188,13 +178,10 @@ public class MoodAddDialogAdapter {
                     gg.text.setBackgroundColor(Color.WHITE);
                     gg.text.setTextColor(textBColor);
                 }
-                gg.text.setOnClickListener(new OnClickListener(){
-                        @Override
-                        public void onClick(View p1) {
-                            tPos=p2;
-                            adapter.notifyDataSetChanged();
-                        }
-                    });
+                gg.text.setOnClickListener(p11 -> {
+                    tPos=p2;
+                    adapter.notifyDataSetChanged();
+                });
             }
 
             @Override

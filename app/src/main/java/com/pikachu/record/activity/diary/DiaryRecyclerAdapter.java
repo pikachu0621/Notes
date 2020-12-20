@@ -5,8 +5,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -105,18 +103,8 @@ public class DiaryRecyclerAdapter extends RecyclerView.Adapter {
             
         }
         
-        itemHolder.linearLayout.setOnLongClickListener(new OnLongClickListener(){
-				@Override
-				public boolean onLongClick(View p1) {
-					return itemOnClick.onLongClick(p1,position,diaryData.get(position));
-				}
-			});
-        itemHolder.linearLayout.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.onClick(p1,position,diaryData.get(position));
-                }
-            });
+        itemHolder.linearLayout.setOnLongClickListener(p1 -> itemOnClick.onLongClick(p1,position,diaryData.get(position)));
+        itemHolder.linearLayout.setOnClickListener(p1 -> itemOnClick.onClick(p1,position,diaryData.get(position)));
 		itemHolder.textView_2.setText(diaryData.get(position).getTitle());
         itemHolder.textView_3.setText(diaryData.get(position).getText());
 
@@ -127,7 +115,7 @@ public class DiaryRecyclerAdapter extends RecyclerView.Adapter {
         return diaryData.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder{
+    public static class ItemViewHolder extends RecyclerView.ViewHolder{
 
         public RelativeLayout relativeLayout,relativeLayout_2;
         public LinearLayout linearLayout;

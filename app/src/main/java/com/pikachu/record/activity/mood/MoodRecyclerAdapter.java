@@ -2,11 +2,9 @@ package com.pikachu.record.activity.mood;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,8 +17,6 @@ import com.pikachu.record.tool.ToolPublic;
 import com.pikachu.record.tool.ToolTime;
 
 import java.util.List;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 
 
 public class MoodRecyclerAdapter extends RecyclerView.Adapter {
@@ -72,18 +68,8 @@ public class MoodRecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         final ItemViewHolder itemHolder = (ItemViewHolder) holder;
-        itemHolder.linearLayout.setOnLongClickListener(new OnLongClickListener(){
-				@Override
-				public boolean onLongClick(View p1) {
-					return itemOnClick.onLongClick(itemHolder.linearLayout,position,moodData.get(position));
-				}
-			});
-        itemHolder.linearLayout.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.onClick(itemHolder.linearLayout,position,moodData.get(position));
-                }
-            });
+        itemHolder.linearLayout.setOnLongClickListener(p1 -> itemOnClick.onLongClick(itemHolder.linearLayout,position,moodData.get(position)));
+        itemHolder.linearLayout.setOnClickListener(p1 -> itemOnClick.onClick(itemHolder.linearLayout,position,moodData.get(position)));
 		itemHolder.linearLayout.setBackgroundColor(ToolPublic.MOOD_STR_TO_COLOR.get(moodData.get(position).getMood()).color);
         itemHolder.textView_1.setText(ToolPublic.MOOD_STR_TO_COLOR.get(moodData.get(position).getMood()).str);
         itemHolder.textView_2.setText(ToolTime.getTimeH(moodData.get(position).getItem(), ToolPublic.TIME_DATA));

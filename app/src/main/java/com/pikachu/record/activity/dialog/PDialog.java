@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
@@ -110,7 +109,7 @@ public class PDialog {
                     super. onStart() ;
                     if (box_view == null) return;
                     View parent = (View) box_view. getParent();
-                    BottomSheetBehavior behavior = BottomSheetBehavior.from(parent);
+                    BottomSheetBehavior<View> behavior = BottomSheetBehavior.from(parent);
                     box_view. measure(0,0);
                     behavior.setPeekHeight(box_view. getMeasuredHeight());
                     CoordinatorLayout.LayoutParams params =(CoordinatorLayout. LayoutParams) parent.getLayoutParams();
@@ -132,21 +131,11 @@ public class PDialog {
         if (msg != null)
             msgView.setText(msg);
         if (leftStr != null)    {
-            leftView.setOnClickListener(new OnClickListener(){
-                    @Override
-                    public void onClick(View p1) {
-                        topOnClick.onClick(p1, PDialog.this);
-                    }
-                });
+            leftView.setOnClickListener(p1 -> topOnClick.onClick(p1, PDialog.this));
             leftView.setText(leftStr);
         }
         if (rightStr != null)    {
-            rightView.setOnClickListener(new OnClickListener(){
-                    @Override
-                    public void onClick(View p1) {
-                        bottomOnClick.onClick(p1, PDialog.this);
-                    }
-                });
+            rightView.setOnClickListener(p1 -> bottomOnClick.onClick(p1, PDialog.this));
             rightView.setText(rightStr);
         }
 

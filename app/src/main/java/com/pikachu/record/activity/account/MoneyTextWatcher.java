@@ -44,7 +44,7 @@ public class MoneyTextWatcher implements TextWatcher {
             }
         }
         //如果"."在起始位置,则起始位置自动补0
-        if (s.toString().trim().substring(0).equals(".")) {
+        if (s.toString().trim().equals(".")) {
             s = "0" + s;
             editText.setText(s);
             editText.setSelection(2);
@@ -53,10 +53,9 @@ public class MoneyTextWatcher implements TextWatcher {
         //如果起始位置为0,且第二位跟的不是".",则无法后续输入
         if (s.toString().startsWith("0")
             && s.toString().trim().length() > 1) {
-            if (!s.toString().substring(1, 2).equals(".")) {
+            if (!s.toString().startsWith(".", 1)) {
                 editText.setText(s.subSequence(0, 1));
                 editText.setSelection(1);
-                return;
             }
         }
     }

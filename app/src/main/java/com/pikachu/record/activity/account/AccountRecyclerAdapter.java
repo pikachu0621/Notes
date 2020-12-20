@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,7 +21,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 
 
-public class AccountRecyclerAdapter extends RecyclerView.Adapter {
+public class AccountRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     private final Context context;
@@ -80,18 +78,8 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
         final ItemViewHolder itemHolder = (ItemViewHolder) holder;
-        itemHolder.linearLayout.setOnLongClickListener(new OnLongClickListener(){
-				@Override
-				public boolean onLongClick(View p1) {
-					return itemOnClick.onLongClick(itemHolder.linearLayout,position,accountData.get(position));
-				}
-			});
-        itemHolder.linearLayout.setOnClickListener(new OnClickListener(){
-                @Override
-                public void onClick(View p1) {
-                    itemOnClick.onClick(itemHolder.linearLayout,position,accountData.get(position));
-                }
-            });
+        itemHolder.linearLayout.setOnLongClickListener(p1 -> itemOnClick.onLongClick(itemHolder.linearLayout,position,accountData.get(position)));
+        itemHolder.linearLayout.setOnClickListener(p1 -> itemOnClick.onClick(itemHolder.linearLayout,position,accountData.get(position)));
             
         Account acc= accountData.get(position);
             
@@ -122,7 +110,7 @@ public class AccountRecyclerAdapter extends RecyclerView.Adapter {
         return accountData.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder{
+    public static class ItemViewHolder extends RecyclerView.ViewHolder{
 
         public RelativeLayout linearLayout;
         public TextView textView_1,textView_2,textView_3,textView_4;

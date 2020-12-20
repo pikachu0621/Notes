@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.pikachu.record.R;
 import com.pikachu.record.activity.diary.DiaryActivity;
 import com.pikachu.record.sql.table.Diary;
@@ -33,7 +34,7 @@ public class DiaryAdapter {
     private final Context context;
     private final Activity activity;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> adapter;
     private Random random;
     private List<Diary> diaries;
     public DiaryAdapter(Context context) {
@@ -64,7 +65,7 @@ public class DiaryAdapter {
     private void setRecyclerViewAdapter(){
 
         if (adapter ==null){
-            adapter = new RecyclerView.Adapter() {
+            adapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 @NonNull
                 @Override
                 public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -83,12 +84,12 @@ public class DiaryAdapter {
                         itemHolder.image.setBackgroundColor(ToolPublic.MOOD_STR_TO_COLOR.get(i).color);
                         */
                         //Glide.with(context).load(R.drawable.home_drawer_my_bg).into(itemHolder.image);
-                        itemHolder.image.setImageResource(R.drawable.home_drawer_my_bg);
-                        
+                        //itemHolder.image.setImageResource(R.drawable.home_drawer_my_bg);
+                        Glide.with(context).load(R.drawable.home_drawer_my_bg).into(itemHolder.image);
                     }else {
                         
-                        itemHolder.image.setImageURI(Uri.fromFile(new File(imagePath)));
-                        //Glide.with(context).load(imagePath).into(itemHolder.image);
+                        //itemHolder.image.setImageURI(Uri.fromFile(new File(imagePath)));
+                        Glide.with(context).load(Uri.fromFile(new File(imagePath))).into(itemHolder.image);
                         
                     }
                     itemHolder.time.setText(ToolTime.getTimeH(diaries.get(position).getTime(), ToolPublic.TIME_DATA));
@@ -109,11 +110,11 @@ public class DiaryAdapter {
                 }
 
                 class ItemHolder extends RecyclerView.ViewHolder{
-                    public LinearLayout on;
-                    public ImageView image;
-                    public TextView time;
-                    public TextView title;
-                    public TextView text;
+                    public final LinearLayout on;
+                    public final ImageView image;
+                    public final TextView time;
+                    public final TextView title;
+                    public final TextView text;
                     public ItemHolder(@NonNull View itemView) {
                         super(itemView);
                         on = itemView.findViewById(R.id.id_home_main_list_diary_linear_1);

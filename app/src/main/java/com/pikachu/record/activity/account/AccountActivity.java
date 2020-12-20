@@ -2,7 +2,6 @@ package com.pikachu.record.activity.account;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -80,33 +79,19 @@ public class AccountActivity extends AppCompatActivity implements  AccountRecycl
 
 
         //刷新
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener(){
-
-				@Override
-				public void onRefresh() {
-					getData();
-					swipe.setRefreshing(false);
-				}
-			});
+        swipe.setOnRefreshListener(() -> {
+            getData();
+            swipe.setRefreshing(false);
+        });
 		
 		
 		//初始addDialog
         accountAddDialogAdapter = new AccountAddDialogAdapter(this);
-        accountAddDialogAdapter.setEndAdd(new AccountAddDialogAdapter.EndAdd(){
-                @Override
-                public void endAdd() {
-                    getData();
-               }
-            });
+        accountAddDialogAdapter.setEndAdd(() -> getData());
 
 
         //TopView添加 按键点击事件
-        topView.setRightImageOnClick(new OnClickListener(){
-				@Override
-				public void onClick(View p1) {
-					accountAddDialogAdapter.showDialog(true,true);
-				}
-			});
+        topView.setRightImageOnClick(p1 -> accountAddDialogAdapter.showDialog(true,true));
 
     }
 
@@ -132,15 +117,12 @@ public class AccountActivity extends AppCompatActivity implements  AccountRecycl
        
         PDialog.PDialog(this)
             .setMsg("是否删除此条账单？")
-            .setLeftStr("确定删除", new PDialog.DialogTopOnClick(){
-                @Override
-                public void onClick(View v, PDialog pDialog) {
-                    initialSql.deleteAccount(account);
-                    pDialog.dismiss();
-                    getData();
-                    //发布更新事件
-                    EventBus.getDefault().post(new DataSynEvent());
-                }
+            .setLeftStr("确定删除", (v1, pDialog) -> {
+                initialSql.deleteAccount(account);
+                pDialog.dismiss();
+                getData();
+                //发布更新事件
+                EventBus.getDefault().post(new DataSynEvent());
             })
             .setRightStr("取消删除", null)
             .show();

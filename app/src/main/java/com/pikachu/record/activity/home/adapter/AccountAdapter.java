@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,10 +38,10 @@ public class AccountAdapter {
             R.id.id_home_main_list_account_textView_8,//年 提示 7
             R.id.id_home_main_list_account_textView_9,//年 收 8
     };
-    private LinearLayout[] linearLayouts=new LinearLayout[3];
-    private TextView[] textViews=new TextView[9];
+    private final LinearLayout[] linearLayouts=new LinearLayout[3];
+    private final TextView[] textViews=new TextView[9];
 
-    private int stringId[]={
+    private final int[] stringId ={
            R.string.home_main_account_7,
             R.string.home_main_account_8,
             R.string.home_main_account_5,
@@ -77,12 +76,7 @@ public class AccountAdapter {
         
         //三个点击事件
         for(View r:linearLayouts){
-            r.setOnClickListener(new OnClickListener(){
-                    @Override
-                    public void onClick(View p1) {
-                        activity.startActivity(new Intent(context, AccountActivity.class));
-                    }
-                });
+            r.setOnClickListener(p1 -> activity.startActivity(new Intent(context, AccountActivity.class)));
          }
         
 

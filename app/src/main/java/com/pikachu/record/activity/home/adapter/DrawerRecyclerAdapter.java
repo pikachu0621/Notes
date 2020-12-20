@@ -7,12 +7,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.pikachu.record.R;
+
 import java.util.ArrayList;
-import android.view.View.OnClickListener;
 
 
 /**
@@ -68,16 +71,14 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
-        ((ItemHolder) holder).imageView.setImageResource(listData.get(position).imageId);
+        //((ItemHolder) holder).imageView.setImageResource();
+        Glide.with(context).load(listData.get(position).imageId).into(((ItemHolder) holder).imageView);
         ((ItemHolder) holder).textView.setText(listData.get(position).title);
-        ((ItemHolder) holder).linearLayout.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View p1) {
-					if (itemOnClick != null)
-						itemOnClick.OnClick( position,listData.get(position));	
-				}
-			});
-		
+        ((ItemHolder) holder).linearLayout.setOnClickListener(p1 -> {
+            if (itemOnClick != null)
+                itemOnClick.OnClick(position, listData.get(position));
+        });
+
     }
 
     @Override
@@ -86,7 +87,7 @@ public class DrawerRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
 
-    public class ItemHolder extends RecyclerView.ViewHolder {
+    public static class ItemHolder extends RecyclerView.ViewHolder {
 
         TextView textView;
         ImageView imageView;
