@@ -19,11 +19,12 @@ Android 随手记
 
 
 
-<br>
-by：Pikachu_WeChat
-
 效果图
 ==============
 |首页|侧滑|心情|笔记|
 |:---:|:---:|:---:|:---:|
-| ![](https://github.com/2825436553/Notes/blob/master/image/3.jpg) | ![](https://github.com/2825436553/book/blob/master/image/2.jpg) | ![](https://github.com/2825436553/Notes/blob/master/image/4.jpg) | ![](https://github.com/2825436553/book/blob/master/image/1.jpg) |
+| ![](https://github.com/2825436553/Notes/blob/master/image/3.jpg) | ![](https://github.com/2825436553/Notes/blob/master/image/2.jpg) | ![](https://github.com/2825436553/Notes/blob/master/image/4.jpg) | ![](https://github.com/2825436553/Notes/blob/master/image/1.jpg) |
+
+
+By: Pikachu_WeChat
+===
