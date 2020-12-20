@@ -42,14 +42,18 @@ public class DiaryAddDialogAdapter {
 
     private final Context context;
     private final Activity activity;
-    private InitialSql initialSql;
+    private final InitialSql initialSql;
     private BottomSheetDialog dialog;
     private View box_view;
     private TextView finishTextView, titleTextView, addImageTextView;
     private QMUIRadiusImageView addImageImageView;
     private ImageView addImageImageView_2;
     private EditText addTitleEditView, addTextEditView;
-    private String upStr, addStr, titleInit, textInit, finishStr;
+    private final String upStr;
+    private final String addStr;
+    private final String titleInit;
+    private final String textInit;
+    private final String finishStr;
     private String imagePath;
 
 
