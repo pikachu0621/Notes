@@ -1,20 +1,20 @@
 package com.pikachu.record.monitor;
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.provider.MediaStore;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import com.pikachu.record.R;
-import com.pikachu.record.tool.ToolOther;
-import android.content.Intent;
-import android.provider.MediaStore;
-import androidx.appcompat.app.AppCompatActivity;
-import android.net.Uri;
-import androidx.annotation.Nullable;
-import android.os.FileUtils;
 import com.pikachu.record.tool.ToolFile;
+import com.pikachu.record.tool.ToolOther;
 
 /**
  有图片选择的activity 继承 这个AccountActivity
@@ -54,9 +54,12 @@ public abstract class ReturnImagePath extends AppCompatActivity {
     public static void toPhoto(Activity activity) {
 
 
+
+
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             //未授权，申请授权(从相册选择图片需要读取存储卡的权限)
-            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RC_CHOOSE_PHOTO);
+            ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_CHOOSE_PHOTO);
         } else {
             apply(activity);
         }

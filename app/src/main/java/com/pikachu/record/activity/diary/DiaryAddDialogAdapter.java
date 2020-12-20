@@ -113,7 +113,7 @@ public class DiaryAddDialogAdapter {
                 @Override
                 public void onClick(View p1) {
 					addAndUpData(true, diary, imagePath == null ||
-                                 imagePath == "" ?diary.getImagePath(): imagePath);
+                                 imagePath == "" ? diary.getImagePath(): imagePath);
                 }
             }, new OnClickListener(){
                 @Override
@@ -121,7 +121,7 @@ public class DiaryAddDialogAdapter {
                     ReturnImagePath.toPhoto(activity);
                 }
             });
-        if(diary.getImagePath()==null||diary.getImagePath().equals("")){
+        if(diary.getImagePath()==null || diary.getImagePath().equals("")){
             addImageImageView_2.setVisibility(View.VISIBLE);
             addImageImageView.setImageDrawable(null);
         }else{
@@ -253,14 +253,15 @@ public class DiaryAddDialogAdapter {
 
             String pathImage=context.getExternalFilesDir("").toString() +ToolPublic.IMAGE_PATH + ToolFile.getFileMD5(imagePath);
             if (ToolFile.copyFile(imagePath, pathImage)) {
-                addImageImageView.setImageURI(Uri.fromFile(new File(pathImage)));   
+                //addImageImageView.setImageURI(Uri.fromFile(new File(pathImage)));
+                Glide.with(context).load(Uri.parse(pathImage)).into(addImageImageView);
                 this.imagePath = pathImage;
-                addImageImageView_2.setVisibility(View.GONE);
             } else {
-                addImageImageView.setImageURI(Uri.fromFile(new File(imagePath)));
+                //addImageImageView.setImageURI(Uri.fromFile(new File(imagePath)));
+                Glide.with(context).load(Uri.parse(imagePath)).into(addImageImageView);
                 this.imagePath = imagePath;
-                addImageImageView_2.setVisibility(View.GONE);
             }
+            addImageImageView_2.setVisibility(View.GONE);
 
         }
 

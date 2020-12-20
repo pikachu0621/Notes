@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.pikachu.record">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    
+
+
+    C<!--ontext.MODE_WORLD_READABLE可读文件，外部程序可以阅读不可以修改
+
+    Context.MODE_WORLD_WRITEABLE可写文件，外部程序可以修改不可以读取-->
+
         
     <application
         android:allowBackup="true"
@@ -15,11 +22,11 @@
         android:theme="@style/AppTheme">
         
         
-        <activity android:name=".activity.mood.MoodActivity"></activity>
-        <activity android:name=".activity.home.HomeActivity" ></activity>
-        <activity android:name=".activity.diary.DiaryActivity" ></activity>
-        <activity android:name=".activity.account.AccountActivity" ></activity>
-        <activity android:name=".activity.task.TaskActivity" ></activity>
+        <activity android:name=".activity.mood.MoodActivity"/>
+        <activity android:name=".activity.home.HomeActivity" />
+        <activity android:name=".activity.diary.DiaryActivity" />
+        <activity android:name=".activity.account.AccountActivity" />
+        <activity android:name=".activity.task.TaskActivity" />
             
             
         

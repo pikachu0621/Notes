@@ -1,17 +1,18 @@
 package com.pikachu.record.tool;
+import android.annotation.SuppressLint;
+import android.content.ContentUris;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
-import android.annotation.SuppressLint;
+import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.content.ContentUris;
-import android.os.Environment;
-import android.database.Cursor;
-import java.io.File;
 import android.util.Log;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -234,8 +235,8 @@ public class ToolFile {
         if (!file.isFile()) {
             return null;
         }
-        MessageDigest digest = null;
-        FileInputStream in = null;
+        MessageDigest digest;
+        FileInputStream in;
         byte buffer[] = new byte[1024];
         int len;
         try {
@@ -252,8 +253,10 @@ public class ToolFile {
         return bytesToHexString(digest.digest());
     }
 
+
+
     public static String bytesToHexString(byte[] src) {
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         if (src == null || src.length <= 0) {
             return null;
         }
@@ -267,8 +270,8 @@ public class ToolFile {
         }
         return stringBuilder.toString();
     }
-    
-    
+
+
     
     
     
