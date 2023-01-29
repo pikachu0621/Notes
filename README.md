@@ -21,7 +21,6 @@ Android 随手记
 下载apk
 ---
 >1. [Github-下载](https://raw.githubusercontent.com/2825436553/Notes/master/app/release/app-release.apk)
->2. [国内下载](https://wwa.lanzous.com/ilC4ejjwofe)
 
 
 效果图
